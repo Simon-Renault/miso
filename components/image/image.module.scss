@@ -1,0 +1,48 @@
+@mixin loader {
+	position: relative;
+	overflow: hidden;
+	background: var(--color-light-gray);
+	&.loaded {
+		&:before {
+			display: none;
+		}
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		animation-name: loader-anim;
+		animation-duration: 1.5s;
+		animation-fill-mode: forwards;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		background-size: 100vw 100%;
+		background-repeat: no-repeat;
+		z-index: 0;
+		background-image: linear-gradient(90deg, rgba(var(--color-light-gray-2), 0), var(--color-light-gray));
+	}
+}
+
+.image {
+	position: relative;
+	> div > img {
+		position: absolute;
+		opacity: 0;
+		transition: opacity 1s ease-in;
+		filter: blur(20px);
+		will-change: opacity filter;
+	}
+	&.loading {
+		background: var(--color-light-gray);
+	}
+	@include loader();
+	&.loaded {
+		> div > img {
+			opacity: 1;
+			filter: blur(0px);
+		}
+	}
+}

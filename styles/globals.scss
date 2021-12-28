@@ -1,0 +1,94 @@
+//Mobile
+:root {
+	--grid-total-width: 100vw;
+	--grid-size: calc(var(--grid-total-width) / 12);
+	--font-family-default: "hk-grotesk", Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	--font-family-serif: "Span", serif;
+	--test-var: "Mobile";
+	--base-headings-size: 36;
+
+	--header-height: 80px;
+	--header-fixed-height: 100px;
+
+	--color-bg: #fff;
+	--color-white: #fff;
+	--color-light-gray: rgb(240, 240, 240);
+	--color-light-gray-1: rgb(221, 221, 221);
+}
+
+//Large mobile
+@media screen and (min-width: 599px) {
+	:root {
+		--test-var: "Large mobile";
+	}
+}
+
+//tablet or small desktop
+@media screen and (min-width: 1023px) {
+	:root {
+		--test-var: "tablet or small desktop";
+	}
+}
+
+//Desktop
+@media screen and (min-width: 1366px) {
+	:root {
+		--test-var: "Desktop";
+	}
+}
+
+@import url("https://use.typekit.net/dqp0osx.css");
+
+@font-face {
+	font-family: hk-grotesk;
+	font-weight: 200;
+	src: url("/fonts/HKGrotesk-Light.woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: hk-grotesk;
+	font-weight: 400;
+	src: url("/fonts/HKGrotesk-Regular.woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: hk-grotesk;
+	font-weight: 600;
+	src: url("/fonts/HKGrotesk-Medium.woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: hk-grotesk;
+	font-weight: 700;
+	src: url("/fonts/HKGrotesk-SemiBold.woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: hk-grotesk;
+	font-weight: 800;
+	src: url("/fonts/HKGrotesk-Bold.woff2");
+	font-display: swap;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: var(--font-family-default);
+	background: var(--color-bg);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}

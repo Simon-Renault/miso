@@ -1,0 +1,37 @@
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    flex-grow: 1;
+    min-width: 25%;
+
+    .placeholder{
+        position: relative;
+        background-color: #f5f5f5;
+        transition: transform .3s ease;
+    }
+    
+    .title{
+        font-weight: 500;
+        margin-top: 25px;
+        margin-bottom: 5px;
+        line-height: 1.5;
+        font-size: 18px;
+      
+    }
+    
+    .price{
+        font-size: 18px;
+    }
+
+    &:hover{
+        .placeholder{
+            transform: translate(0,-10px);
+        }
+    }
+}
+
+
+

@@ -1,0 +1,18 @@
+{
+	"extends": [
+		"plugin:react/recommended",
+		"next/core-web-vitals",
+		"eslint:recommended"
+	],
+	"overrides": [
+		{
+			"files": [
+				"*.ts",
+				"*.tsx"
+			],
+			"rules": {
+				"no-undef": 0
+			}
+		}
+	]
+}
