@@ -1,5 +1,5 @@
 import css from './header.module.scss';
-import { Menu, ShoppingBag } from 'react-feather';
+import { Menu } from 'react-feather';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';

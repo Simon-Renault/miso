@@ -5,9 +5,8 @@ import ProductCard from "../components/product-card";
 import { commerce } from "../lib/commerce";
 import { Product } from "@chec/commerce.js/types/product";
 import { Merchant } from "@chec/commerce.js/types/merchant";
-import { ArrowRight, Menu } from "react-feather";
+import { ArrowRight } from "react-feather";
 import Image from 'next/image'
-import Link from "next/link";
 import Header from "../components/header";
 import Img from "@/components/image/image";
 
@@ -28,7 +27,7 @@ export async function getStaticProps() {
 	};
 }
 
-const Home: NextPage<IHome> = ({ merchant, products }) => {
+const Home: NextPage<IHome> = ({ products }) => {
 	return (
 		<div>
 			<Head>
