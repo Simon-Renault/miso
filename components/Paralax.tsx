@@ -10,7 +10,7 @@ const Parallax = ({ children, offset = 50 }: ParallaxProps): JSX.Element => {
 	const prefersReducedMotion = useReducedMotion()
 	const [elementTop, setElementTop] = useState(0)
 	const [clientHeight, setClientHeight] = useState(0)
-	const ref = useRef(null)
+	const ref = useRef<HTMLDivElement>(null)
 
 	const { scrollY } = useViewportScroll()
 
@@ -23,6 +23,7 @@ const Parallax = ({ children, offset = 50 }: ParallaxProps): JSX.Element => {
 	useLayoutEffect(() => {
 		const element = ref.current
 		const onResize = () => {
+			if (!element) return
 			setElementTop(element.getBoundingClientRect().top + window.scrollY || window.pageYOffset)
 			setClientHeight(window.innerHeight)
 		}

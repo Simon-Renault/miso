@@ -12,7 +12,6 @@ import Img from "@/components/image/image";
 import { motion } from "framer-motion";
 import Grid from "@/components/sections/grid";
 import classNames from "classnames";
-import Parallax from "@/components/Paralax";
 
 interface IHome {
 	products: Product[];
