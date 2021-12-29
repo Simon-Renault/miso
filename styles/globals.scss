@@ -1,7 +1,13 @@
-//Mobile
+@import "./variables.scss";
+@import "./fonts.scss";
+
+//Global css variables
 :root {
 	--grid-total-width: 100vw;
+
+	//grid
 	--grid-size: calc(var(--grid-total-width) / 12);
+
 	--font-family-default: "hk-grotesk", Helvetica, Arial, Verdana, Tahoma, sans-serif;
 	--font-family-serif: "Span", serif;
 	--test-var: "Mobile";
@@ -17,61 +23,24 @@
 }
 
 //Large mobile
-@media screen and (min-width: 599px) {
+@media screen and (min-width: $breakpoint_mobile) {
 	:root {
 		--test-var: "Large mobile";
 	}
 }
 
 //tablet or small desktop
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: $breakpoint_tablet) {
 	:root {
 		--test-var: "tablet or small desktop";
 	}
 }
 
 //Desktop
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: $breakpoint_desktop) {
 	:root {
 		--test-var: "Desktop";
 	}
-}
-
-@import url("https://use.typekit.net/dqp0osx.css");
-
-@font-face {
-	font-family: hk-grotesk;
-	font-weight: 200;
-	src: url("/fonts/HKGrotesk-Light.woff2");
-	font-display: swap;
-}
-
-@font-face {
-	font-family: hk-grotesk;
-	font-weight: 400;
-	src: url("/fonts/HKGrotesk-Regular.woff2");
-	font-display: swap;
-}
-
-@font-face {
-	font-family: hk-grotesk;
-	font-weight: 600;
-	src: url("/fonts/HKGrotesk-Medium.woff2");
-	font-display: swap;
-}
-
-@font-face {
-	font-family: hk-grotesk;
-	font-weight: 700;
-	src: url("/fonts/HKGrotesk-SemiBold.woff2");
-	font-display: swap;
-}
-
-@font-face {
-	font-family: hk-grotesk;
-	font-weight: 800;
-	src: url("/fonts/HKGrotesk-Bold.woff2");
-	font-display: swap;
 }
 
 html,

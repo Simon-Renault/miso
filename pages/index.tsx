@@ -7,9 +7,12 @@ import { Product } from "@chec/commerce.js/types/product";
 import { Merchant } from "@chec/commerce.js/types/merchant";
 import { ArrowRight } from "react-feather";
 import Image from 'next/image'
-import Header from "../components/header";
+import Header from "../components/nav/header";
 import Img from "@/components/image/image";
 import { motion } from "framer-motion";
+import Grid from "@/components/sections/grid";
+import classNames from "classnames";
+import Parallax from "@/components/Paralax";
 
 interface IHome {
 	products: Product[];
@@ -104,11 +107,15 @@ const Home: NextPage<IHome> = ({ products }) => {
 								<motion.span variants={letter}>t</motion.span>
 							</motion.p>
 						</div>
+
 						<div className={css.button_link}>
 							Explore all
 							<ArrowRight size={24} className={css.icon} />
 						</div>
+
+
 					</div>
+
 
 					<motion.div className={css.right} initial={{ opacity: 0, y: 20 }}
 						animate={{
@@ -119,10 +126,12 @@ const Home: NextPage<IHome> = ({ products }) => {
 						<Img src="/images/elephant.jpg" className={css.intro_image} />
 					</motion.div>
 
+
+
 				</motion.section>
 
 
-				<section className={css.section}>
+				<section className={classNames(css.section)}>
 					<div className={css.heading_container}>
 						<div className={css.section_title}>Collection</div>
 						<div className={css.section_statement}>
@@ -133,12 +142,15 @@ const Home: NextPage<IHome> = ({ products }) => {
 							<ArrowRight size={24} className={css.icon} />
 						</div>
 					</div>
-					<div className={css.grid}>
-						{products.map((p) => {
-							return <ProductCard product={p} key={p.name} />;
-						})}
-					</div>
+
 				</section>
+
+				<Grid items={
+					[...products].map((p) => {
+						return <ProductCard product={p} key={p.name} />;
+					})
+				} />
+
 
 
 				<section className={css.section}>

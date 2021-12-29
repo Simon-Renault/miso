@@ -11,15 +11,20 @@ const Header = () => {
 
 	useScrollPosition(
 		({ currPos }) => {
+			// default transition height
 			let height = 100;
+
+			// get real transition height
 			if (headerRef?.current) {
 				const { clientHeight } = headerRef.current
 				height = clientHeight
 			}
-			const _hasScrolled = currPos.y < -height;
-			setHasScrolled(_hasScrolled)
+			const _hasScrolled = currPos.y < (-height * 2);
+
+			//Only update when a change happen to avoid unecesary re-renders
+			if (_hasScrolled !== hasScrolled) setHasScrolled(_hasScrolled);
 		},
-		[headerRef, setHasScrolled]
+		[headerRef, hasScrolled, setHasScrolled]
 	)
 
 	return (
@@ -35,8 +40,9 @@ const Header = () => {
 					<motion.header
 						className={css.fixed_header}
 						variants={fixedHeaderVariants}
-						initial="hidden"
-						animate="show"
+						initial="initial"
+						animate="animate"
+						exit="exit"
 					>
 						{headerContent}
 					</motion.header>
@@ -60,12 +66,17 @@ const headerContent = (
 )
 
 const fixedHeaderVariants = {
-	hidden: {
-		y: - 100,
+	initial: {
+		y: -100,
 		transition: { type: "tween", duration: .2 }
 	},
-	show: {
+	animate: {
 		y: 0,
+		transition: { type: "tween", duration: .2 }
+	},
+	exit: {
+		opacity: 0,
+		y: -100,
 		transition: { type: "tween", duration: .2 }
 	}
 }
