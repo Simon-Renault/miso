@@ -47,6 +47,8 @@
 	font-family: var(--font-family-serif);
 	line-height: 1.1;
 	font-weight: 400;
+	display: flex;
+	overflow: hidden;
 }
 
 .button_link {
@@ -89,4 +91,15 @@
 	flex-wrap: wrap;
 	width: 100%;
 	padding: var(--grid-size) 0;
+}
+
+.first {
+	display: flex;
+	font-size: 140px;
+	margin: 0.25em 0.2em 0.25em 0;
+}
+.last {
+	display: flex;
+	font-size: 140px;
+	margin: 0.25em 0.2em 0.25em 0;
 }

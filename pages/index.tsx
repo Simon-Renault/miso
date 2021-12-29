@@ -9,6 +9,7 @@ import { ArrowRight } from "react-feather";
 import Image from 'next/image'
 import Header from "../components/header";
 import Img from "@/components/image/image";
+import { motion } from "framer-motion";
 
 interface IHome {
 	products: Product[];
@@ -27,6 +28,46 @@ export async function getStaticProps() {
 	};
 }
 
+const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+
+const firstName = {
+	initial: {
+		y: 0,
+	},
+	animate: {
+		y: 0,
+		transition: {
+			delayChildren: 0.6,
+			staggerChildren: 0.04,
+			staggerDirection: -1,
+		},
+	},
+};
+
+const lastName = {
+	initial: {
+		y: 0,
+	},
+	animate: {
+		y: 0,
+		transition: {
+			delayChildren: 0.6,
+			staggerChildren: 0.04,
+			staggerDirection: 1,
+		},
+	},
+};
+
+const letter = {
+	initial: {
+		y: 400,
+	},
+	animate: {
+		y: 0,
+		transition: { ...transition },
+	},
+};
+
 const Home: NextPage<IHome> = ({ products }) => {
 	return (
 		<div>
@@ -37,14 +78,31 @@ const Home: NextPage<IHome> = ({ products }) => {
 
 			<Header />
 
-			<main className={css.main}>
+			<motion.main className={css.main} initial='initial'
+				animate='animate'
+				exit='exit'>
 
-				<section className={`${css.section} ${css.intro}`}>
-
+				<motion.section className={`${css.section} ${css.intro}`} >
 					<div className={`${css.left} ${css.heading_container}`}>
 						<div className={css.section_title}>Artist designer based in London, UK</div>
 						<div className={css.section_statement}>
-							<p>Simon Renault</p>
+							<motion.p className={css.first} variants={firstName}>
+								<motion.span variants={letter}>S</motion.span>
+								<motion.span variants={letter}>i</motion.span>
+								<motion.span variants={letter}>m</motion.span>
+								<motion.span variants={letter}>o</motion.span>
+								<motion.span variants={letter}>n</motion.span>
+							</motion.p>
+							{" "}
+							<motion.p className={css.last} variants={lastName}>
+								<motion.span variants={letter}>R</motion.span>
+								<motion.span variants={letter}>e</motion.span>
+								<motion.span variants={letter}>n</motion.span>
+								<motion.span variants={letter}>a</motion.span>
+								<motion.span variants={letter}>u</motion.span>
+								<motion.span variants={letter}>l</motion.span>
+								<motion.span variants={letter}>t</motion.span>
+							</motion.p>
 						</div>
 						<div className={css.button_link}>
 							Explore all
@@ -52,11 +110,16 @@ const Home: NextPage<IHome> = ({ products }) => {
 						</div>
 					</div>
 
-					<div className={css.right}>
+					<motion.div className={css.right} initial={{ opacity: 0, y: 20 }}
+						animate={{
+							opacity: 1,
+							y: 0,
+							transition: { delay: 1.2, ...transition },
+						}}>
 						<Img src="/images/elephant.jpg" className={css.intro_image} />
-					</div>
+					</motion.div>
 
-				</section>
+				</motion.section>
 
 
 				<section className={css.section}>
@@ -96,7 +159,7 @@ const Home: NextPage<IHome> = ({ products }) => {
 				</section>
 
 
-			</main>
+			</motion.main>
 
 			<footer className={css.footer}></footer>
 		</div>

@@ -21,6 +21,7 @@ const Img = ({ src, className, style, alt, onLoad }: IImageProps): JSX.Element =
 				alt={alt}
 				layout="fill"
 				objectFit="cover"
+				quality={10}
 				onLoad={() => {
 					SetLoad(true);
 					if (whenLoaded) whenLoaded();
