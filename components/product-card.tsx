@@ -18,13 +18,12 @@ const ProductCard: React.FC<IProductCard> = ({ product }) => {
 		height={product.image.image_dimensions.height / 10} />
 
 	const href = `/product/${product.id}`
-	const layoutId = `product-${product.id}`
 
 	return (
 		<Link href={href}>
 			<a>
 				<figure className={`${css.card}`}>
-					<motion.div className={css.placeholder} layoutId={layoutId}>
+					<motion.div className={css.placeholder}>
 						{maybeImage}
 					</motion.div>
 					<div className={css.title}>{product.name}</div>

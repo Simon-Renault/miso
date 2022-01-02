@@ -36,13 +36,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const ProductPage: NextPage<IproductPageProps> = ({ product }) => {
 
-	const layoutId = `product-${product.id}`
-
 	return (
 		<motion.div>
 
 			{product.id}
-			<motion.div className={css.image} layoutId={layoutId}>
+			<motion.div className={css.image}>
 				{product.image && <Image src={product.image?.url} layout="fill" />}
 			</motion.div>
 
