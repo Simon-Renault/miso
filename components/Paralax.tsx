@@ -7,12 +7,18 @@ type ParallaxProps = {
 }
 
 const Parallax = ({ children, offset = 50 }: ParallaxProps): JSX.Element => {
+
+	//For accessibility reasons
 	const prefersReducedMotion = useReducedMotion()
+
+	//DOM refs
+	const ref = useRef<HTMLDivElement>(null)
+	const { scrollY } = useViewportScroll()
+
+	//State
 	const [elementTop, setElementTop] = useState(0)
 	const [clientHeight, setClientHeight] = useState(0)
-	const ref = useRef<HTMLDivElement>(null)
 
-	const { scrollY } = useViewportScroll()
 
 	const initial = elementTop - clientHeight
 	const final = elementTop + offset

@@ -17,6 +17,7 @@ const Grid = ({ items }: IGridProps) => {
 				return (
 					<Parallax offset={scrollSpeed} key={`grdi-item_${index}`}>
 						<motion.div
+
 							className={classNames(css.grid_item, classNamesList)}>
 							{item}
 						</motion.div>
@@ -89,7 +90,7 @@ const computeClassNamesByIndex = (index: number, totalItems: number) => {
 	//base class Names
 	if (item_number == 0) {
 		otherClass = classNames(css.span_2, css.ml_1)
-		scrollSpeed = -60
+		scrollSpeed = -35
 
 	} else if (item_number == 1) {
 		otherClass = classNames(css.span_4, css.ml_1)
@@ -97,15 +98,15 @@ const computeClassNamesByIndex = (index: number, totalItems: number) => {
 
 	} else if (item_number == 2) {
 		otherClass = classNames(css.span_2, css.ml_1)
-		scrollSpeed = 50
+		scrollSpeed = 35
 
 	} else if (item_number == 3) {
 		otherClass = classNames(css.span_3, css.ml_2)
-		scrollSpeed = -10
+		scrollSpeed = -20
 
 	} else if (item_number == 4) {
 		otherClass = classNames(css.span_3, css.ml_2)
-		scrollSpeed = 70
+		scrollSpeed = 20
 
 	} else if (item_number == 5) {
 		otherClass = classNames(css.span_2, css.ml_2)

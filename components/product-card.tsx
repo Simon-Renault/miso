@@ -2,6 +2,7 @@ import { Product } from '@chec/commerce.js/types/product'
 import Link from 'next/link'
 import Image from 'next/image'
 import css from './product-card.module.scss'
+import { motion } from 'framer-motion'
 
 interface IProductCard {
 	product: Product
@@ -16,13 +17,16 @@ const ProductCard: React.FC<IProductCard> = ({ product }) => {
 		width={product.image.image_dimensions.width / 10}
 		height={product.image.image_dimensions.height / 10} />
 
+	const href = `/product/${product.id}`
+	const layoutId = `product-${product.id}`
+
 	return (
-		<Link href="/" >
+		<Link href={href}>
 			<a>
 				<figure className={`${css.card}`}>
-					<div className={css.placeholder}>
+					<motion.div className={css.placeholder} layoutId={layoutId}>
 						{maybeImage}
-					</div>
+					</motion.div>
 					<div className={css.title}>{product.name}</div>
 					<div className={css.price}>{product.price.formatted_with_symbol}</div>
 				</figure>
